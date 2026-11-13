@@ -1,0 +1,52 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Python virtual environments
+venv/
+translation_env/
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.log
+
+# IDE settings
+.vscode/
+
+# Raw collected data - keep locally
+data/raw/
+
+# Old intermediate data
+data/processed_old/
+
+# Temporary files
+*.tmp
+.DS_Store
+
+
+# Intermediate relevance and review files
+data/processed/ollama_relevance_results.csv
+data/processed/relevance_audit_sample.csv
+data/processed/relevance_v2_test.csv
+data/processed/sentiment_relevance_review.csv
+data/processed/sentiment_relevance_suggestions.csv
+data/processed/prediction_dataset_rejected.csv
+
+# Intermediate YouTube review files
+data/processed/youtube_reviewed/
+
+# Intermediate news processing files
+data/processed/*_news_language_detected.json
+data/processed/*_news_translated.json
+
+# Old processed data
+data/processed_old/
+data/processed_old/**
+
+# Raw third-party text - do not publish
+data/processed/normalized_sentiment_data.json
+data/processed/sentiment_analysis_results.csv
+data/processed/*_news_reviewed.json

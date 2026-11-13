@@ -1,0 +1,37 @@
+﻿Date,Ticker,Stock_Name,Exchange,Total_Mentions,Social_Mentions,News_Mentions,Positive_Count,Negative_Count,Neutral_Count,Average_Sentiment_Score,Net_Sentiment_Score,Total_Likes,Total_Views,Total_Reactions,Sources
+2026-11-03,0005.HK,HSBC Holdings,HKEX,1,0,1,1,0,0,1.0,1.0,0.0,0.0,0.0,Exa
+2026-11-06,0005.HK,HSBC Holdings,HKEX,1,0,1,0,1,0,-1.0,-1.0,0.0,0.0,0.0,Exa
+2026-11-10,0005.HK,HSBC Holdings,HKEX,1,0,1,1,0,0,1.0,1.0,0.0,0.0,0.0,Exa
+2026-11-03,000660.KS,SK Hynix,KRX,1,1,0,1,0,0,1.0,1.0,0.0,12500.0,0.0,Telegram
+2026-11-05,000660.KS,SK Hynix,KRX,1,1,0,0,0,1,0.0,0.0,0.0,2840.0,0.0,Telegram
+2026-11-06,000660.KS,SK Hynix,KRX,2,2,0,2,0,0,1.0,2.0,0.0,30180.0,0.0,Telegram
+2026-11-09,000660.KS,SK Hynix,KRX,2,1,1,1,0,1,0.5,1.0,0.0,2260.0,0.0,"Exa, Telegram"
+2026-11-10,000660.KS,SK Hynix,KRX,1,0,1,0,1,0,-1.0,-1.0,0.0,0.0,0.0,Exa
+2026-11-02,005380.KS,Hyundai Motor,KRX,3,3,0,2,1,0,0.3333,1.0,0.0,3025.0,0.0,Telegram
+2026-11-03,005380.KS,Hyundai Motor,KRX,4,2,2,4,0,0,1.0,4.0,0.0,2420.0,0.0,"Exa, Telegram"
+2026-11-04,005380.KS,Hyundai Motor,KRX,2,1,1,2,0,0,1.0,2.0,0.0,1130.0,0.0,"Exa, Telegram"
+2026-11-06,005380.KS,Hyundai Motor,KRX,2,2,0,1,0,1,0.5,1.0,0.0,2800.0,0.0,Telegram
+2026-11-09,005380.KS,Hyundai Motor,KRX,2,1,1,2,0,0,1.0,2.0,0.0,1040.0,0.0,"Exa, Telegram"
+2026-11-10,005380.KS,Hyundai Motor,KRX,2,0,2,0,2,0,-1.0,-2.0,0.0,0.0,0.0,Exa
+2026-11-03,005930.KS,Samsung Electronics,KRX,3,2,1,2,1,0,0.3333,1.0,0.0,15060.0,0.0,"Exa, Telegram"
+2026-11-06,005930.KS,Samsung Electronics,KRX,2,2,0,1,0,1,0.5,1.0,0.0,30180.0,0.0,Telegram
+2026-11-10,005930.KS,Samsung Electronics,KRX,2,0,2,1,1,0,0.0,0.0,0.0,0.0,0.0,Exa
+2026-11-05,035720.KS,Kakao,KRX,3,1,2,3,0,0,1.0,3.0,0.0,137.0,0.0,"Exa, Telegram"
+2026-11-06,035720.KS,Kakao,KRX,5,5,0,5,0,0,1.0,5.0,0.0,754.0,0.0,Telegram
+2026-11-09,035720.KS,Kakao,KRX,5,4,1,4,0,1,0.8,4.0,0.0,445.0,0.0,"Exa, Telegram"
+2026-11-09,0700.HK,Tencent Holdings,HKEX,3,2,1,3,0,0,1.0,3.0,0.0,45800.0,859.0,"Exa, Telegram"
+2026-11-10,0700.HK,Tencent Holdings,HKEX,4,2,2,3,0,1,0.75,3.0,0.0,21500.0,400.0,"Exa, LIHKG, Telegram"
+2026-11-02,1211.HK,BYD Company,HKEX,1,0,1,1,0,0,1.0,1.0,0.0,0.0,0.0,Exa
+2026-11-03,1211.HK,BYD Company,HKEX,1,1,0,0,1,0,-1.0,-1.0,0.0,924.0,0.0,Telegram
+2026-11-09,1211.HK,BYD Company,HKEX,2,0,2,1,1,0,0.0,0.0,0.0,0.0,0.0,Exa
+2026-11-03,1810.HK,Xiaomi Corporation,HKEX,1,0,1,1,0,0,1.0,1.0,0.0,0.0,0.0,Exa
+2026-11-09,1810.HK,Xiaomi Corporation,HKEX,2,0,2,2,0,0,1.0,2.0,0.0,0.0,0.0,Exa
+2026-11-10,1810.HK,Xiaomi Corporation,HKEX,1,1,0,0,0,1,0.0,0.0,0.0,57.0,0.0,Telegram
+2026-11-03,373220.KS,LG Energy Solution,KRX,5,2,3,5,0,0,1.0,5.0,0.0,13910.0,0.0,"Exa, Telegram"
+2026-11-04,373220.KS,LG Energy Solution,KRX,2,2,0,2,0,0,1.0,2.0,0.0,3570.0,0.0,Telegram
+2026-11-05,373220.KS,LG Energy Solution,KRX,1,0,1,1,0,0,1.0,1.0,0.0,0.0,0.0,Exa
+2026-11-06,373220.KS,LG Energy Solution,KRX,3,3,0,3,0,0,1.0,3.0,0.0,5440.0,0.0,Telegram
+2026-11-09,373220.KS,LG Energy Solution,KRX,1,0,1,0,0,1,0.0,0.0,0.0,0.0,0.0,Exa
+2026-11-10,373220.KS,LG Energy Solution,KRX,1,1,0,1,0,0,1.0,1.0,0.0,1410.0,0.0,Telegram
+2026-11-09,9988.HK,Alibaba Group,HKEX,1,1,0,1,0,0,1.0,1.0,0.0,7690.0,70.0,Telegram
+2026-11-10,9988.HK,Alibaba Group,HKEX,3,0,3,3,0,0,1.0,3.0,0.0,0.0,0.0,Exa
