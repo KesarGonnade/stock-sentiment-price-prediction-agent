@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stock Market Sentiment Intelligence Report</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: #f3f5f9;
+    color: #202938;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background: #172554;
+    color: white;
+    padding: 35px 5%;
+}
+
+header h1 { margin: 0 0 10px; }
+
+header p { color: #cbd5e1; margin: 0; }
+
+main {
+    max-width: 1500px;
+    margin: auto;
+    padding: 25px;
+}
+
+section {
+    background: white;
+    border-radius: 12px;
+    padding: 22px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 9px rgba(0,0,0,.05);
+}
+
+h2 { margin-top: 0; color: #172554; }
+
+.summary-grid, .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 15px;
+}
+
+.summary-card, .metric-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 18px;
+}
+
+.summary-card span, .metric-card span {
+    display: block;
+    color: #64748b;
+    font-size: 13px;
+    margin-bottom: 9px;
+}
+
+.summary-card strong, .metric-card strong {
+    font-size: 25px;
+}
+
+.bar-row {
+    display: grid;
+    grid-template-columns: 100px 1fr 35px;
+    align-items: center;
+    gap: 10px;
+    margin: 12px 0;
+}
+
+.bar-label { font-size: 13px; }
+
+.bar-track {
+    height: 15px;
+    background: #e2e8f0;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    background: #4169e1;
+    border-radius: 20px;
+}
+
+.bar-value { font-weight: bold; }
+
+.table-wrap { overflow-x: auto; }
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 1250px;
+    font-size: 13px;
+}
+
+th, td {
+    text-align: left;
+    padding: 12px 10px;
+    border-bottom: 1px solid #e2e8f0;
+    white-space: nowrap;
+}
+
+th {
+    background: #f1f5f9;
+    color: #334155;
+}
+
+tr:hover { background: #f8fafc; }
+
+.muted {
+    color: #64748b;
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+.positive { color: #15803d; font-weight: bold; }
+.negative { color: #dc2626; font-weight: bold; }
+.neutral { color: #64748b; font-weight: bold; }
+
+.note {
+    background: #fff7ed;
+    border-left: 4px solid #f59e0b;
+    padding: 15px;
+    line-height: 1.6;
+    color: #7c2d12;
+}
+
+footer {
+    text-align: center;
+    color: #64748b;
+    padding: 25px;
+    font-size: 12px;
+}
+
+@media print {
+    body { background: white; }
+    section { box-shadow: none; break-inside: avoid; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Stock Market Sentiment Intelligence</h1>
+    <p>Hong Kong and South Korea | Historical market and sentiment analysis</p>
+</header>
+
+<main>
+
+<section>
+    <h2>Project Overview</h2>
+    <div class="summary-grid">
+        <div class="summary-card">
+            <span>Stocks covered</span>
+            <strong>10</strong>
+        </div>
+        <div class="summary-card">
+            <span>Total mentions in latest stock observations</span>
+            <strong>21</strong>
+        </div>
+        <div class="summary-card">
+            <span>Positive mentions</span>
+            <strong>15</strong>
+        </div>
+        <div class="summary-card">
+            <span>Negative mentions</span>
+            <strong>2</strong>
+        </div>
+        <div class="summary-card">
+            <span>Neutral mentions</span>
+            <strong>4</strong>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Hong Kong Stock Mention Rankings</h2>
+    <p class="muted">Ranked by total mentions in each stock's latest available sentiment observation.</p>
+    
+        <div class="bar-row">
+            <div class="bar-label">0700.HK</div>
+            <div class="bar-track">
+                <div class="bar-fill" style="width:100.0%"></div>
+            </div>
+            <div class="bar-value">3</div>
+        </div>
+        
+        <div class="bar-row">
+            <div class="bar-label">1211.HK</div>
+            <div class="bar-track">
+                <div class="bar-fill" style="width:66.7%"></div>
+            </div>
+            <div class="bar-value">2</div>
+        </div>
+        
+        <div class="bar-row">
+            <div class="bar-label">1810.HK</div>
+            <div class="bar-track">
+                <div class="bar-fill" style="width:66.7%"></div>
+            </div>
+            <div class="bar-value">2</div>
+        </div>
+        
+        <div class="bar-row">
+            <div class="bar-label">0005.HK</div>
+            <div class="bar-track">
+                <div class="bar-fill" style="width:33.3%"></div>
+            </div>
+            <div class="bar-value">1</div>
+        </div>
+        
+        <div class="bar-row">
+            <div class="bar-label">9988.HK</div>
+            <div class="bar-track">
+                <div class="bar-fill" style="width:33.3%"></div>
+            </div>
+            <div class="bar-value">1</div>
+        </div>
+        
+</section>
+
+<section>
+    <h2>South Korea Stock Mention Rankings</h2>
+    <p class="muted">Ranked by total mentions in each stock's latest available sentiment observation.</p>
+    
+        <div class="bar-row">
+            <div class="bar-label">035720.KS</div>
+            <div class="bar-track">
+                <div class="bar-fill" style="width:100.0%"></div>
+            </div>
+            <div class="bar-value">5</div>
+        </div>
+        
+        <div class="bar-row">
+            <div class="bar-label">000660.KS</div>
+            <div class="bar-track">
+                <div class="bar-fill" style="width:40.0%"></div>
+            </div>
+            <div class="bar-value">2</div>
+        </div>
+        
+        <div class="bar-row">
+            <div class="bar-label">005380.KS</div>
+            <div class="bar-track">
+                <div class="bar-fill" style="width:40.0%"></div>
+            </div>
+            <div class="bar-value">2</div>
+        </div>
+        
+        <div class="bar-row">
+            <div class="bar-label">005930.KS</div>
+            <div class="bar-track">
+                <div class="bar-fill" style="width:40.0%"></div>
+            </div>
+            <div class="bar-value">2</div>
+        </div>
+        
+        <div class="bar-row">
+            <div class="bar-label">373220.KS</div>
+            <div class="bar-track">
+                <div class="bar-fill" style="width:20.0%"></div>
+            </div>
+            <div class="bar-value">1</div>
+        </div>
+        
+</section>
+
+<section>
+    <h2>Hong Kong Stock Analysis</h2>
+    <div class="table-wrap">
+    <table>
+        <thead>
+        <tr>
+            <th>Rank</th><th>Stock</th><th>Mentions</th>
+            <th>Social</th><th>News</th><th>Pos/Neg/Neu</th>
+            <th>Avg Sentiment</th><th>Latest Close</th>
+            <th>20-session Support</th><th>20-session Resistance</th>
+            <th>Historical Predicted Return</th>
+            <th>Historical Predicted Close</th><th>Predicted Direction</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>
+                <strong>Tencent Holdings</strong>
+                <div class="muted">0700.HK</div>
+            </td>
+            <td>3</td>
+            <td>2</td>
+            <td>1</td>
+            <td>3/0/0</td>
+            <td class="positive">
+                1.000
+                <div>Bullish</div>
+            </td>
+            <td>417.80</td>
+            <td>375.20</td>
+            <td>431.20</td>
+            <td>0.204%</td>
+            <td>419.25</td>
+            <td>Up</td>
+        </tr>
+        
+        <tr>
+            <td>2</td>
+            <td>
+                <strong>BYD Company</strong>
+                <div class="muted">1211.HK</div>
+            </td>
+            <td>2</td>
+            <td>0</td>
+            <td>2</td>
+            <td>1/1/0</td>
+            <td class="neutral">
+                0.000
+                <div>Neutral</div>
+            </td>
+            <td>71.95</td>
+            <td>67.00</td>
+            <td>76.85</td>
+            <td>-2.504%</td>
+            <td>70.64</td>
+            <td>Down</td>
+        </tr>
+        
+        <tr>
+            <td>3</td>
+            <td>
+                <strong>Xiaomi Corporation</strong>
+                <div class="muted">1810.HK</div>
+            </td>
+            <td>2</td>
+            <td>0</td>
+            <td>2</td>
+            <td>2/0/0</td>
+            <td class="positive">
+                1.000
+                <div>Bullish</div>
+            </td>
+            <td>30.60</td>
+            <td>24.00</td>
+            <td>31.74</td>
+            <td>-0.558%</td>
+            <td>29.93</td>
+            <td>Down</td>
+        </tr>
+        
+        <tr>
+            <td>4</td>
+            <td>
+                <strong>HSBC Holdings</strong>
+                <div class="muted">0005.HK</div>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+            <td>0/1/0</td>
+            <td class="negative">
+                -1.000
+                <div>Bearish</div>
+            </td>
+            <td>143.30</td>
+            <td>131.10</td>
+            <td>151.00</td>
+            <td>-3.795%</td>
+            <td>132.28</td>
+            <td>Down</td>
+        </tr>
+        
+        <tr>
+            <td>5</td>
+            <td>
+                <strong>Alibaba Group</strong>
+                <div class="muted">9988.HK</div>
+            </td>
+            <td>1</td>
+            <td>1</td>
+            <td>0</td>
+            <td>1/0/0</td>
+            <td class="positive">
+                1.000
+                <div>Bullish</div>
+            </td>
+            <td>101.60</td>
+            <td>95.10</td>
+            <td>113.20</td>
+            <td>0.264%</td>
+            <td>104.88</td>
+            <td>Up</td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+</section>
+
+<section>
+    <h2>South Korea Stock Analysis</h2>
+    <div class="table-wrap">
+    <table>
+        <thead>
+        <tr>
+            <th>Rank</th><th>Stock</th><th>Mentions</th>
+            <th>Social</th><th>News</th><th>Pos/Neg/Neu</th>
+            <th>Avg Sentiment</th><th>Latest Close</th>
+            <th>20-session Support</th><th>20-session Resistance</th>
+            <th>Historical Predicted Return</th>
+            <th>Historical Predicted Close</th><th>Predicted Direction</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>
+                <strong>Kakao</strong>
+                <div class="muted">035720.KS</div>
+            </td>
+            <td>5</td>
+            <td>4</td>
+            <td>1</td>
+            <td>4/0/1</td>
+            <td class="positive">
+                0.800
+                <div>Bullish</div>
+            </td>
+            <td>32,050.00</td>
+            <td>28,400.00</td>
+            <td>33,300.00</td>
+            <td>0.445%</td>
+            <td>32,242.92</td>
+            <td>Up</td>
+        </tr>
+        
+        <tr>
+            <td>2</td>
+            <td>
+                <strong>SK Hynix</strong>
+                <div class="muted">000660.KS</div>
+            </td>
+            <td>2</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1/0/1</td>
+            <td class="positive">
+                0.500
+                <div>Bullish</div>
+            </td>
+            <td>1,212,000.00</td>
+            <td>1,089,000.00</td>
+            <td>1,587,000.00</td>
+            <td>-2.493%</td>
+            <td>1,107,678.98</td>
+            <td>Down</td>
+        </tr>
+        
+        <tr>
+            <td>3</td>
+            <td>
+                <strong>Hyundai Motor</strong>
+                <div class="muted">005380.KS</div>
+            </td>
+            <td>2</td>
+            <td>1</td>
+            <td>1</td>
+            <td>2/0/0</td>
+            <td class="positive">
+                1.000
+                <div>Bullish</div>
+            </td>
+            <td>275,000.00</td>
+            <td>267,500.00</td>
+            <td>326,000.00</td>
+            <td>-0.022%</td>
+            <td>271,438.97</td>
+            <td>Down</td>
+        </tr>
+        
+        <tr>
+            <td>4</td>
+            <td>
+                <strong>Samsung Electronics</strong>
+                <div class="muted">005930.KS</div>
+            </td>
+            <td>2</td>
+            <td>2</td>
+            <td>0</td>
+            <td>1/0/1</td>
+            <td class="positive">
+                0.500
+                <div>Bullish</div>
+            </td>
+            <td>198,900.00</td>
+            <td>179,200.00</td>
+            <td>249,000.00</td>
+            <td>-2.738%</td>
+            <td>183,533.95</td>
+            <td>Down</td>
+        </tr>
+        
+        <tr>
+            <td>5</td>
+            <td>
+                <strong>LG Energy Solution</strong>
+                <div class="muted">373220.KS</div>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+            <td>0/0/1</td>
+            <td class="neutral">
+                0.000
+                <div>Neutral</div>
+            </td>
+            <td>330,500.00</td>
+            <td>314,500.00</td>
+            <td>433,000.00</td>
+            <td>-2.353%</td>
+            <td>310,517.70</td>
+            <td>Down</td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+</section>
+
+<section>
+    <h2>Model Evaluation</h2>
+    <p>Ridge Regression compared with a zero-return naïve baseline.</p>
+    
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <span>Ridge MAE</span>
+                <strong>3.256%</strong>
+            </div>
+            <div class="metric-card">
+                <span>Baseline MAE</span>
+                <strong>1.987%</strong>
+            </div>
+            <div class="metric-card">
+                <span>Ridge RMSE</span>
+                <strong>4.033%</strong>
+            </div>
+            <div class="metric-card">
+                <span>Ridge Directional Accuracy</span>
+                <strong>21.43%</strong>
+            </div>
+            <div class="metric-card">
+                <span>Baseline Directional Accuracy</span>
+                <strong>42.86%</strong>
+            </div>
+            <div class="metric-card">
+                <span>Historical Test Predictions</span>
+                <strong>14</strong>
+            </div>
+        </div>
+        
+    <div class="note">
+        The model's predictions are historical held-out test predictions,
+        not live forecasts. The dataset is very small, and the baseline
+        performed better in the initial evaluation. Results should not be
+        interpreted as reliable investment forecasts.
+    </div>
+</section>
+
+<section>
+    <h2>Historical Prediction Results</h2>
+    <div class="table-wrap">
+    <table>
+        <thead>
+        <tr>
+            <th>Observation Date</th><th>Target Date</th><th>Stock</th>
+            <th>Actual Return</th><th>Predicted Return</th>
+            <th>Actual Close</th><th>Predicted Close</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>2026-11-06</td>
+            <td>2026-11-09</td>
+            <td>HSBC Holdings</td>
+            <td>-0.145%</td>
+            <td>-3.795%</td>
+            <td>137.30</td>
+            <td>132.28</td>
+        </tr>
+        
+        <tr>
+            <td>2026-11-06</td>
+            <td>2026-11-09</td>
+            <td>SK Hynix</td>
+            <td>0.353%</td>
+            <td>-2.798%</td>
+            <td>1,136,000.00</td>
+            <td>1,100,325.65</td>
+        </tr>
+        
+        <tr>
+            <td>2026-11-06</td>
+            <td>2026-11-09</td>
+            <td>Hyundai Motor</td>
+            <td>-2.862%</td>
+            <td>-0.840%</td>
+            <td>271,500.00</td>
+            <td>277,153.63</td>
+        </tr>
+        
+        <tr>
+            <td>2026-11-06</td>
+            <td>2026-11-09</td>
+            <td>Samsung Electronics</td>
+            <td>0.636%</td>
+            <td>-2.738%</td>
+            <td>189,900.00</td>
+            <td>183,533.95</td>
+        </tr>
+        
+        <tr>
+            <td>2026-11-06</td>
+            <td>2026-11-09</td>
+            <td>Kakao</td>
+            <td>-0.619%</td>
+            <td>1.517%</td>
+            <td>32,100.00</td>
+            <td>32,789.91</td>
+        </tr>
+        
+        <tr>
+            <td>2026-11-06</td>
+            <td>2026-11-09</td>
+            <td>LG Energy Solution</td>
+            <td>-5.778%</td>
+            <td>0.574%</td>
+            <td>318,000.00</td>
+            <td>339,438.14</td>
+        </tr>
+        
+        <tr>
+            <td>2026-11-09</td>
+            <td>2026-11-10</td>
+            <td>SK Hynix</td>
+            <td>6.690%</td>
+            <td>-2.493%</td>
+            <td>1,212,000.00</td>
+            <td>1,107,678.98</td>
+        </tr>
+        
+        <tr>
+            <td>2026-11-09</td>
+            <td>2026-11-10</td>
+            <td>Hyundai Motor</td>
+            <td>1.289%</td>
+            <td>-0.022%</td>
+            <td>275,000.00</td>
+            <td>271,438.97</td>
+        </tr>
+        
+        <tr>
+            <td>2026-11-09</td>
+            <td>2026-11-10</td>
+            <td>Kakao</td>
+            <td>-0.156%</td>
+            <td>0.445%</td>
+            <td>32,050.00</td>
+            <td>32,242.92</td>
+        </tr>
+        
+        <tr>
+            <td>2026-11-09</td>
+            <td>2026-11-10</td>
+            <td>Tencent Holdings</td>
+            <td>-0.143%</td>
+            <td>0.204%</td>
+            <td>417.80</td>
+            <td>419.25</td>
+        </tr>
+        
+        <tr>
+            <td>2026-11-09</td>
+            <td>2026-11-10</td>
+            <td>BYD Company</td>
+            <td>-0.690%</td>
+            <td>-2.504%</td>
+            <td>71.95</td>
+            <td>70.64</td>
+        </tr>
+        
+        <tr>
+            <td>2026-11-09</td>
+            <td>2026-11-10</td>
+            <td>Xiaomi Corporation</td>
+            <td>1.661%</td>
+            <td>-0.558%</td>
+            <td>30.60</td>
+            <td>29.93</td>
+        </tr>
+        
+        <tr>
+            <td>2026-11-09</td>
+            <td>2026-11-10</td>
+            <td>LG Energy Solution</td>
+            <td>3.931%</td>
+            <td>-2.353%</td>
+            <td>330,500.00</td>
+            <td>310,517.70</td>
+        </tr>
+        
+        <tr>
+            <td>2026-11-09</td>
+            <td>2026-11-10</td>
+            <td>Alibaba Group</td>
+            <td>-2.868%</td>
+            <td>0.264%</td>
+            <td>101.60</td>
+            <td>104.88</td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+</section>
+
+<section>
+    <h2>Methodology and Limitations</h2>
+    <ul>
+        <li>Social posts and financial news were collected from multiple sources.</li>
+        <li>Sentiment was classified into positive, negative and neutral categories.</li>
+        <li>Market features include daily returns, moving averages and volatility.</li>
+        <li>Prediction target is the next available trading session's closing return.</li>
+        <li>Support and resistance are descriptive 20-session low/high levels, not guaranteed price barriers.</li>
+        <li>Sentiment and market observations cover a limited period and uneven number of records.</li>
+        <li>Market data ends on 10 November 2026 in the collected files.</li>
+        <li>Sentiment session assignment uses assumed exchange cutoffs; exact source availability times and official exchange calendars were not independently verified.</li>
+        <li>Historical model performance does not establish future profitability or reliability.</li>
+    </ul>
+</section>
+
+</main>
+
+<footer>
+    Generated from the project's local processed datasets.
+    Historical analysis only — not investment advice.
+</footer>
+
+</body>
+</html>
