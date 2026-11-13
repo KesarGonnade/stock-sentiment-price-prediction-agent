@@ -4,6 +4,14 @@ A Python-based stock market sentiment analysis and next-trading-session price pr
 
 The system collects financial news and social media discussions, classifies sentiment using a locally running Large Language Model (LLM), combines sentiment with historical stock market data, and evaluates a Ridge Regression model for predicting the next trading session's closing price.
 
+## 🌐 Live Dashboard
+
+Explore the interactive dashboard here:
+
+[**View Live Dashboard**](https://kesargonnade.github.io/stock-sentiment-price-prediction-agent/)
+
+---
+
 ## 1. Project Objectives
 
 - Collect stock-related discussions from multiple social media sources.
